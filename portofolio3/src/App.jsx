@@ -4,7 +4,6 @@ import Skills from "./components/Skills/Skills";
 import Project from "./components/Project/Project";
 import CTA from "./components/CTA/CTA";
 import Footer from "./components/Footer/Footer";
-import "./App.css";
 
 function App() {
   return (
