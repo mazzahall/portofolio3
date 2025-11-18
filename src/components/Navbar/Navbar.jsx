@@ -1,59 +1,116 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
+
+  // Load saved theme
+  useEffect(() => {
+    const saved = localStorage.getItem("theme") === "dark";
+    setDark(saved);
+    document.documentElement.classList.toggle("dark", saved);
+  }, []);
+
+  // Toggle dark mode
+  const toggleDark = () => {
+    const newTheme = !dark;
+    setDark(newTheme);
+    document.documentElement.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
+
+  const menuItems = [
+    { name: "Home", href: "#" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+  ];
+
+  // Colors sesuai skema
+  const colors = {
+    background: dark ? "#121212" : "#FAFAFA",
+    text: dark ? "#ECEFF1" : "#263238",
+    buttonBg: dark ? "#37474F" : "#B0BEC5",
+  };
 
   return (
-    <header className="w-full bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <a href="#" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-md bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-semibold">
-                A
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-lg font-semibold text-gray-800">Portfolio</span>
-              </div>
-            </a>
+    <header style={{ backgroundColor: colors.background }} className="w-full sticky top-0 z-50 shadow-sm">
+      <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-md bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-semibold">
+            A
           </div>
+          <span style={{ color: colors.text }} className="hidden sm:block text-lg font-semibold">
+            Portfolio
+          </span>
+        </a>
 
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-gray-700 hover:text-cyan-600">Home</a>
-            <a href="#about" className="text-gray-700 hover:text-cyan-600">About</a>
-            <a href="#projects" className="text-gray-700 hover:text-cyan-600">Projects</a>
-            <a href="#skills" className="text-gray-700 hover:text-cyan-600">Skills</a>
-            <a href="#contact" className="px-4 py-2 rounded-md bg-cyan-600 text-white text-sm hover:bg-cyan-700">Contact</a>
-          </nav>
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex gap-6">
+          {menuItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              style={{ color: colors.text }}
+              className="hover:text-cyan-500 transition-colors duration-200"
+            >
+              {item.name}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="px-4 py-2 rounded-md bg-cyan-600 text-white text-sm hover:bg-cyan-700 transition-colors duration-200"
+          >
+            Contact
+          </a>
+        </nav>
 
-          <div className="md:hidden flex items-center">
+        {/* Right Section */}
+        <div className="flex items-center gap-2">
+          {/* Dark Mode Button */}
+          <button
+            onClick={toggleDark}
+            style={{ backgroundColor: colors.buttonBg, color: colors.text }}
+            className="p-2 rounded-md hover:opacity-80 transition-opacity duration-200"
+          >
+            {dark ? "🌞" : "🌙"}
+          </button>
+
+          {/* Mobile Toggle */}
+          <div className="md:hidden">
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen(!open)}
-              className="p-2 rounded-md inline-flex items-center justify-center text-gray-700 hover:bg-gray-100"
+              style={{ color: colors.text }}
+              className="p-2 rounded-md inline-flex items-center justify-center hover:opacity-80 transition-opacity duration-200"
             >
-              {open ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              {open ? "✖" : "☰"}
             </button>
           </div>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden border-t bg-white/95">
-          <div className="max-w-4xl mx-auto px-4 py-4 flex flex-col gap-3">
-            <a href="#" className="text-gray-700 py-2">Home</a>
-            <a href="#about" className="text-gray-700 py-2">About</a>
-            <a href="#skills" className="text-gray-700 py-2">Skills</a>
-            <a href="#projects" className="text-gray-700 py-2">Projects</a>
-            <a href="#contact" className="py-2 inline-block rounded-md text-center bg-cyan-600 text-white">Contact</a>
+        <div style={{ backgroundColor: colors.background }} className="md:hidden border-t">
+          <div className="flex flex-col gap-3 px-4 py-4">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                style={{ color: colors.text }}
+                className="py-2 hover:text-cyan-500 transition-colors duration-200"
+              >
+                {item.name}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="py-2 inline-block rounded-md text-center bg-cyan-600 text-white hover:bg-cyan-700 transition-colors duration-200"
+            >
+              Contact
+            </a>
           </div>
         </div>
       )}
