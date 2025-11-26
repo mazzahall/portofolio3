@@ -1,17 +1,43 @@
-import React from "react";
-
 export default function Footer() {
   return (
-    <footer
-      className="w-full mt-16 py-6 bg-[#B0BEC5]"
-      
-    >
-      <div className="max-w-4xl mx-auto px-6 text-center text-[#263238] font-['Lato'] text-sm">
-        <p>© 2025 Azzam. All rights reserved.</p>
-        <p className="mt-1 text-[#263238] font-['Lato']">
-          Built with React & TailwindCSS
-        </p>
+    <footer className="bg-[#B3C1C8] py-12 px-8">
+      <div className="flex flex-col md:flex-row md:items-start md:gap-20">
+
+
+        <div className="mb-8 md:mb-0">
+          <img 
+            src="/logo.png" 
+            alt="Logo" 
+            className="w-12 mx-auto md:mx-0"
+          />
+        </div>
+
+
+        <div className="grid grid-cols-2 gap-10 md:flex md:gap-20">
+
+
+          <ul className="space-y-2 text-gray-800 text-[16px]">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+
+
+          <ul className="space-y-2 text-gray-800 text-[16px]">
+            <li><a href="#">Terms-And-Conditions</a></li>
+            <li><a href="#">Privacy-Policy</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Gallery</a></li>
+          </ul>
+        </div>
       </div>
+
+    <p className="mt-10 text-gray-900 text-[15px] text-center max-w-6xl mx-auto">
+      © 2025 Portofolio. All rights reserved.
+    </p>
+
     </footer>
   );
 }

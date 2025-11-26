@@ -4,14 +4,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
 
-  // Load saved theme
+
   useEffect(() => {
     const saved = localStorage.getItem("theme") === "dark";
     setDark(saved);
     document.documentElement.classList.toggle("dark", saved);
   }, []);
 
-  // Toggle dark mode
+
   const toggleDark = () => {
     const newTheme = !dark;
     setDark(newTheme);
@@ -26,7 +26,7 @@ export default function Navbar() {
     { name: "Skills", href: "#skills" },
   ];
 
-  // Colors sesuai skema
+
   const colors = {
     background: dark ? "#121212" : "#FAFAFA",
     text: dark ? "#ECEFF1" : "#263238",
@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <header style={{ backgroundColor: colors.background }} className="w-full sticky top-0 z-50 shadow-sm">
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+
         <a href="#" className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-md bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-semibold">
             A
@@ -46,7 +46,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Menu */}
+
         <nav className="hidden md:flex gap-6">
           {menuItems.map((item) => (
             <a
@@ -66,9 +66,9 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* Right Section */}
+
         <div className="flex items-center gap-2">
-          {/* Dark Mode Button */}
+
           <button
             onClick={toggleDark}
             style={{ backgroundColor: colors.buttonBg, color: colors.text }}
@@ -77,7 +77,7 @@ export default function Navbar() {
             {dark ? "🌞" : "🌙"}
           </button>
 
-          {/* Mobile Toggle */}
+
           <div className="md:hidden">
             <button
               aria-label="Toggle menu"
@@ -91,7 +91,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+
       {open && (
         <div style={{ backgroundColor: colors.background }} className="md:hidden border-t">
           <div className="flex flex-col gap-3 px-4 py-4">
