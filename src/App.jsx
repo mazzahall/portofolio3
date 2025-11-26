@@ -12,8 +12,7 @@ function App() {
 
   return (
     <div className="relative">
-
-      {loading && <PageLoader onFinish={() => setLoading(false)} />}
+      <PageLoader onFinish={() => setLoading(false)} />
 
       {!loading && (
         <>
