@@ -8,7 +8,7 @@ export default function Skills() {
   return (
     <section id="skills" className="w-full py-16 bg-white text-[#263238]">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-2xl font-['Playfair_Display'] font-semibold text-center mb-10">
+        <h2 className="text-2xl font-Playfair_Display font-semibold text-center mb-10">
           Skills
         </h2>
 
@@ -16,7 +16,7 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="p-4 bg-[#B0BEC5] rounded-lg text-center font-['Lato'] font-semibold hover:opacity-90 transition"
+              className="p-4 bg-[#B0BEC5] rounded-lg text-center font-Lato font-semibold hover:opacity-90 transition"
             >
               {skill}
             </div>

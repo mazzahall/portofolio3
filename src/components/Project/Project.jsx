@@ -4,17 +4,17 @@ export default function Projects() {
   const projects = [
     {
       title: "ADZHEALTH",
-      img: "https://via.placeholder.com/300x180?text=Landing+Page",
+      img: "https://raw.githubusercontent.com/mazzahall/assets-port/main/Project/ADZHEALTH.png",
       link: "https://adz-health.vercel.app/"
     },
     {
       title: "Manajemen diri",
-      img: "https://via.placeholder.com/300x180?text=Dashboard",
+      img: "https://raw.githubusercontent.com/mazzahall/assets-port/main/Project/manajemendiri.png",
       link: "https://tugas-akhir-chi.vercel.app/"
     },
     {
       title: "Portofolio lama",
-      img: "https://via.placeholder.com/300x180?text=Ecommerce",
+      img: "https://raw.githubusercontent.com/mazzahall/assets-port/main/Project/portofoliolama.png",
       link: "https://mazzahall.github.io/porto-jsx/"
     }
   ];

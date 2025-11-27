@@ -2,27 +2,25 @@
 
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
-/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-body {
-  font-family: 'Lato', sans-serif;
+@font-face {
+  font-family: 'Lato';
+  src: url('https://raw.githubusercontent.com/mazzahall/assets-port/main/Font/Lato-Regular.ttf')
+       format('truetype');
   font-weight: 400;
-  line-height: 1.6;
-  background-color: #fff;
+  font-style: normal;
 }
 
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  line-height: 1.2;
+@font-face {
+  font-family: 'Playfair';
+  src: url('https://raw.githubusercontent.com/mazzahall/assets-port/main/Font/PlayfairDisplay-Regular.ttf')
+       format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Playfair_Display';
+  src: url('https://raw.githubusercontent.com/mazzahall/assets-port/main/Font/PlayfairDisplay-Black.ttf')
+       format('truetype');
+  font-weight: 900;
+  font-style: normal;
 }
