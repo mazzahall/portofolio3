@@ -5,17 +5,17 @@ export default function Projects() {
     {
       title: "ADZHEALTH",
       img: "https://via.placeholder.com/300x180?text=Landing+Page",
-      link: "#"
+      link: "https://adz-health.vercel.app/"
     },
     {
       title: "Manajemen diri",
       img: "https://via.placeholder.com/300x180?text=Dashboard",
-      link: "#"
+      link: "https://tugas-akhir-chi.vercel.app/"
     },
     {
       title: "Portofolio lama",
       img: "https://via.placeholder.com/300x180?text=Ecommerce",
-      link: "#"
+      link: "https://mazzahall.github.io/porto-jsx/"
     }
   ];
 
