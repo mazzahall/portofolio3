@@ -6,16 +6,11 @@ export default function PageLoader({ onFinish }) {
     "Selamat Datang",
     "Welcome",
     "Bienvenido",
-    "Bienvenue",
-    "Willkommen",
-    "Benvenuto",
     "欢迎",
     "ようこそ",
     "환영합니다",
     "أهلاً وسهلاً",
     "Добро пожаловать",
-    "स्वागत है",
-    "ברוך הבא",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,13 +21,13 @@ export default function PageLoader({ onFinish }) {
       setCurrentIndex((prev) =>
         prev + 1 < greetings.length ? prev + 1 : prev
       );
-    }, 1000); // 1 detik per kata
+    }, 700);
 
     const timeout = setTimeout(() => {
       clearInterval(interval);
       setShow(false);
       if (onFinish) onFinish();
-    }, greetings.length * 1000 + 1000); // total durasi ~14 detik
+    }, greetings.length * 600 + 700);
 
     return () => {
       clearInterval(interval);
@@ -49,7 +44,7 @@ export default function PageLoader({ onFinish }) {
           animate={{ y: 0 }}
           exit={{ y: "-100%" }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          style={{ backgroundColor: "#000" }} // tirai hitam
+          style={{ backgroundColor: "#000" }}
         >
           <AnimatePresence mode="wait">
             <motion.h1
