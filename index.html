@@ -1,23 +1,36 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="#" href="https://raw.githubusercontent.com/mazzahall/assets-port/main/assets/logo%20azzam..png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio</title>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
 
-<script>
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark");
-  }
-</script>
-  </head>
+  <script>
+    fetch('/favicon.json')
+      .then(res => res.json())
+      .then(data => {
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/webp';
+        link.href = data.favicon;
+        document.head.appendChild(link);
+      })
+      .catch(err => console.error('Gagal memuat favicon:', err));
+  </script>
+</head>
 
-  <body
-  >
-    <div id="root"></div>
+<body>
+  <div id="root"></div>
 
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>
