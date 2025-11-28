@@ -38,8 +38,8 @@ export default function Navbar() {
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
 
         <a href="#" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-md bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-semibold">
-            A
+          <div className="w-10 h-10 rounded-md flex items-center justify-center text-white font-semibold">
+            <img src="https://raw.githubusercontent.com/mazzahall/assets-port/main/assets/logo%20azzam..webp" />
           </div>
           <span style={{ color: colors.text }} className="hidden sm:block text-lg font-semibold">
             Portfolio

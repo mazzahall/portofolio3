@@ -6,7 +6,7 @@ export default function Footer() {
 
         <div className="mb-8 md:mb-0">
           <img 
-            src="https://raw.githubusercontent.com/mazzahall/assets-port/main/assets/logo%20azzam..png" 
+            src="https://raw.githubusercontent.com/mazzahall/assets-port/main/assets/logo%20azzam..webp" 
             alt="Logo" 
             className="w-12 mx-auto md:mx-0"
           />

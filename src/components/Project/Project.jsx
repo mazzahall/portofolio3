@@ -1,49 +1,35 @@
 import React from "react";
+import projectsData from "../../assets/project.json";
 
-export default function Projects() {
-  const projects = [
-    {
-      title: "ADZHEALTH",
-      img: "https://raw.githubusercontent.com/mazzahall/assets-port/main/Project/ADZHEALTH.png",
-      link: "https://adz-health.vercel.app/"
-    },
-    {
-      title: "Manajemen diri",
-      img: "https://raw.githubusercontent.com/mazzahall/assets-port/main/Project/manajemendiri.png",
-      link: "https://tugas-akhir-chi.vercel.app/"
-    },
-    {
-      title: "Portofolio lama",
-      img: "https://raw.githubusercontent.com/mazzahall/assets-port/main/Project/portofoliolama.png",
-      link: "https://mazzahall.github.io/porto-jsx/"
-    }
-  ];
-
+export default function Project() {
   return (
     <section id="projects" className="w-full py-16 bg-white text-[#263238]">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-2xl font-['Playfair_Display'] font-semibold text-center mb-10">
+        <h2 className="text-2xl font-Playfair_Display font-semibold text-center mb-10">
           Projects
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {projectsData.map((project) => (
             <div
-              key={index}
+              key={project.id}
               className="rounded-lg overflow-hidden shadow bg-[#B0BEC5] hover:opacity-90 transition"
             >
               <img
-                src={project.img}
+                src={project.image}
                 alt={project.title}
                 className="w-full h-40 object-cover"
               />
+
               <div className="p-4">
-                <h3 className="text-lg font-['Playfair_Display'] font-semibold">
+                <h3 className="text-lg font-Playfair_Display font-semibold">
                   {project.title}
                 </h3>
+
                 <a
                   href={project.link}
-                  className="text-sm font-['Lato'] mt-2 inline-block hover:underline"
+                  className="text-sm font-Lato mt-2 inline-block hover:underline"
+                  target="_blank"
                 >
                   View Project
                 </a>
