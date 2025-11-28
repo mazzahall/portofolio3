@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+import navbarData from "../../assets/navbar.json";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
-
 
   useEffect(() => {
     const saved = localStorage.getItem("theme") === "dark";
     setDark(saved);
     document.documentElement.classList.toggle("dark", saved);
   }, []);
-
 
   const toggleDark = () => {
     const newTheme = !dark;
@@ -23,29 +22,37 @@ export default function Navbar() {
     { name: "Home", href: "#" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
+    { name: "Skills", href: "#skills" }
   ];
-
 
   const colors = {
     background: dark ? "#121212" : "#FAFAFA",
     text: dark ? "#ECEFF1" : "#263238",
-    buttonBg: dark ? "#37474F" : "#B0BEC5",
+    buttonBg: dark ? "#37474F" : "#B0BEC5"
   };
 
   return (
-    <header style={{ backgroundColor: colors.background }} className="w-full sticky top-0 z-50 shadow-sm">
+    <header
+      style={{ backgroundColor: colors.background }}
+      className="w-full sticky top-0 z-50 shadow-sm"
+    >
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-
         <a href="#" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-md flex items-center justify-center text-white font-semibold">
-            <img src="https://raw.githubusercontent.com/mazzahall/assets-port/main/assets/logo%20azzam..webp" />
+          <div className="w-10 h-10 rounded-md flex items-center justify-center">
+            <img
+              src={navbarData.logo}
+              alt="Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <span style={{ color: colors.text }} className="hidden sm:block text-lg font-semibold">
+
+          <span
+            style={{ color: colors.text }}
+            className="hidden sm:block text-lg font-semibold"
+          >
             Portfolio
           </span>
         </a>
-
 
         <nav className="hidden md:flex gap-6">
           {menuItems.map((item) => (
@@ -66,9 +73,7 @@ export default function Navbar() {
           </a>
         </nav>
 
-
         <div className="flex items-center gap-2">
-
           <button
             onClick={toggleDark}
             style={{ backgroundColor: colors.buttonBg, color: colors.text }}
@@ -76,7 +81,6 @@ export default function Navbar() {
           >
             {dark ? "🌞" : "🌙"}
           </button>
-
 
           <div className="md:hidden">
             <button
@@ -91,9 +95,11 @@ export default function Navbar() {
         </div>
       </div>
 
-
       {open && (
-        <div style={{ backgroundColor: colors.background }} className="md:hidden border-t">
+        <div
+          style={{ backgroundColor: colors.background }}
+          className="md:hidden border-t"
+        >
           <div className="flex flex-col gap-3 px-4 py-4">
             {menuItems.map((item) => (
               <a
