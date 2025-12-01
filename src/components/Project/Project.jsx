@@ -1,7 +1,15 @@
-import React from "react";
-import projectsData from "../../assets/project.json";
+import React, { useEffect, useState } from "react";
 
 export default function Project() {
+  const [projectsData, setProjectsData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://raw.githubusercontent.com/mazzahall/assets-port/main/data/project.json")
+      .then((res) => res.json())
+      .then((data) => setProjectsData(data))
+      .catch((err) => console.error("Failed to load project.json:", err));
+  }, []);
+
   return (
     <section id="projects" className="w-full py-16 bg-white text-[#263238]">
       <div className="max-w-4xl mx-auto px-6">
