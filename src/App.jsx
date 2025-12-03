@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Skills from "./components/Skills/Skills";
@@ -6,9 +6,26 @@ import Project from "./components/Project/Project";
 import CTA from "./components/CTA/CTA";
 import Footer from "./components/Footer/Footer";
 import PageLoader from "./components/Pageloader/PageLoader"; 
+import Lenis from "@studio-freight/lenis";
 
 function App() {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!loading) {
+      const lenis = new Lenis({
+        smooth: true,
+        duration: 1.2,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }
+  }, [loading]);
 
   return (
     <div className="relative">

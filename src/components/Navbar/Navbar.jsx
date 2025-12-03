@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
-import navbarData from "../../assets/navbar.json";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
+  const [navbarData, setNavbarData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://raw.githubusercontent.com/mazzahall/assets-port/main/data/navbar.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setNavbarData(data);
+      })
+      .catch((err) => console.error("Navbar JSON Error:", err));
+  }, []);
+
 
   useEffect(() => {
     const saved = localStorage.getItem("theme") === "dark";
@@ -17,6 +27,7 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark", newTheme);
     localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
+
 
   const menuItems = [
     { name: "Home", href: "#" },
@@ -37,22 +48,14 @@ export default function Navbar() {
       className="w-full sticky top-0 z-50 shadow-sm"
     >
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-3">
+
           <div className="w-10 h-10 rounded-md flex items-center justify-center">
             <img
-              src={navbarData.logo}
+              src={navbarData?.logo}
               alt="Logo"
               className="w-full h-full object-contain"
             />
           </div>
-
-          <span
-            style={{ color: colors.text }}
-            className="hidden sm:block text-lg font-semibold"
-          >
-            Portfolio
-          </span>
-        </a>
 
         <nav className="hidden md:flex gap-6">
           {menuItems.map((item) => (
@@ -65,6 +68,7 @@ export default function Navbar() {
               {item.name}
             </a>
           ))}
+
           <a
             href="#contact"
             className="px-4 py-2 rounded-md bg-cyan-600 text-white text-sm hover:bg-cyan-700 transition-colors duration-200"
@@ -111,6 +115,7 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
+
             <a
               href="#contact"
               className="py-2 inline-block rounded-md text-center bg-cyan-600 text-white hover:bg-cyan-700 transition-colors duration-200"

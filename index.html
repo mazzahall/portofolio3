@@ -12,19 +12,6 @@
       document.documentElement.classList.remove("dark");
     }
   </script>
-
-  <script>
-    fetch('/favicon.json')
-      .then(res => res.json())
-      .then(data => {
-        const link = document.createElement('link');
-        link.rel = 'icon';
-        link.type = 'image/webp';
-        link.href = data.favicon;
-        document.head.appendChild(link);
-      })
-      .catch(err => console.error('Gagal memuat favicon:', err));
-  </script>
 </head>
 
 <body>

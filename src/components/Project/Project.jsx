@@ -5,9 +5,15 @@ export default function Project() {
 
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/mazzahall/assets-port/main/data/project.json")
-      .then((res) => res.json())
-      .then((data) => setProjectsData(data))
-      .catch((err) => console.error("Failed to load project.json:", err));
+      .then((res) => {
+        console.log("Status:", res.status);
+        return res.json();
+      })
+      .then((data) => {
+        console.log("DATA:", data);
+        setProjectsData(data);
+      })
+      .catch((err) => console.error("ERROR:", err));
   }, []);
 
   return (
@@ -38,6 +44,7 @@ export default function Project() {
                   href={project.link}
                   className="text-sm font-Lato mt-2 inline-block hover:underline"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   View Project
                 </a>
