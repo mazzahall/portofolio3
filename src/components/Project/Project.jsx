@@ -11,7 +11,7 @@ export default function Project() {
       })
       .then((data) => {
         console.log("DATA:", data);
-        setProjectsData(data);
+        setProjectsData(data.projects);  // akses Array di dalam object
       })
       .catch((err) => console.error("ERROR:", err));
   }, []);
@@ -30,14 +30,14 @@ export default function Project() {
               className="rounded-lg overflow-hidden shadow bg-[#B0BEC5] hover:opacity-90 transition"
             >
               <img
-                src={project.image}
-                alt={project.title}
+                src={project.gambar}
+                alt={project.judul}
                 className="w-full h-40 object-cover"
               />
 
               <div className="p-4">
                 <h3 className="text-lg font-Playfair_Display font-semibold">
-                  {project.title}
+                  {project.judul}
                 </h3>
 
                 <a
