@@ -34,8 +34,10 @@ function App() {
 
       {!loading && (
         <>
-
-          <SEO />
+          <SEO
+            title="Portfolio – azzam"
+            description="Portfolio resmi azzam dengan informasi skills, project, dan CTA."
+          />
 
           <Navbar />
           <HeroSection />
