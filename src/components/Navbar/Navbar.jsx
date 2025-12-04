@@ -5,7 +5,7 @@ export default function Navbar() {
   const [dark, setDark] = useState(false);
   const [navbarData, setNavbarData] = useState(null);
 
-  // Load navbar.json
+
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/mazzahall/assets-port/main/data/navbar.json")
       .then((res) => res.json())
@@ -16,7 +16,7 @@ export default function Navbar() {
       .catch((err) => console.error("Navbar JSON Error:", err));
   }, []);
 
-  // Theme
+
   useEffect(() => {
     const saved = localStorage.getItem("theme") === "dark";
     setDark(saved);
@@ -50,7 +50,7 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
         
-        {/* LOGO */}
+
         <div className="w-10 h-10 rounded-md flex items-center justify-center bg-transparent">
           {navbarData ? (
             <img
@@ -63,7 +63,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* DESKTOP MENU */}
+
         <nav className="hidden md:flex gap-6">
           {menuItems.map((item) => (
             <a
@@ -83,7 +83,7 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* RIGHT BUTTONS */}
+
         <div className="flex items-center gap-2">
           <button
             onClick={toggleDark}
@@ -93,7 +93,7 @@ export default function Navbar() {
             {dark ? "🌞" : "🌙"}
           </button>
 
-          {/* MOBILE MENU BUTTON */}
+
           <div className="md:hidden">
             <button
               aria-label="Toggle menu"
@@ -107,7 +107,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+
       {open && (
         <div
           style={{ backgroundColor: colors.background }}

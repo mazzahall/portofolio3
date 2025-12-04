@@ -5,8 +5,9 @@ import Skills from "./components/Skills/Skills";
 import Project from "./components/Project/Project";
 import CTA from "./components/CTA/CTA";
 import Footer from "./components/Footer/Footer";
-import PageLoader from "./components/Pageloader/PageLoader"; 
+import PageLoader from "./components/Pageloader/PageLoader";
 import Lenis from "@studio-freight/lenis";
+import SEO from "./components/SEO";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,9 @@ function App() {
 
       {!loading && (
         <>
+
+          <SEO />
+
           <Navbar />
           <HeroSection />
           <Skills />
