@@ -6,8 +6,8 @@ import Project from "./components/Project/Project";
 import CTA from "./components/CTA/CTA";
 import Footer from "./components/Footer/Footer";
 import PageLoader from "./components/Pageloader/PageLoader";
+import SEO from "./components/SEO/SEO";
 import Lenis from "@studio-freight/lenis";
-import SEO from "./components/SEO";
 
 function App() {
   const [loading, setLoading] = useState(true);
